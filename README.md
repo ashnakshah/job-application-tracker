@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 💼 Job Application Tracker
 
 A full-stack web application that helps users track and manage job applications through different stages of the hiring process.
@@ -164,3 +165,7 @@ Contributions, issues, and feature requests are welcome.
 📄 License
 
 This project is open source and available under the MIT License.
+=======
+# job-application-tracker
+A full-stack web application that helps users track and manage job applications through different stages of the hiring process.
+>>>>>>> 47dc1d96bc9c75e7a29e4096cafa67646a3a9f79
