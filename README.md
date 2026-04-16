@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 💼 Job Application Tracker
 
 A full-stack web application that helps users track and manage job applications through different stages of the hiring process.
-
----
-
-🚀 Live Demo
 
 ---
 
@@ -87,24 +82,12 @@ job-tracker/
 
 ---
 
-🖥️ Screenshots
-
-### Main Dashboard
-
-*(Add screenshot here)*
-
-### Adding a Job
-
-*(Add screenshot here)*
-
----
-
 🧪 How to Run Locally
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/job-application-tracker.git
+git clone https://github.com/ashnakshah/job-application-tracker.git
 cd job-application-tracker
 ```
 
@@ -165,7 +148,3 @@ Contributions, issues, and feature requests are welcome.
 📄 License
 
 This project is open source and available under the MIT License.
-=======
-# job-application-tracker
-A full-stack web application that helps users track and manage job applications through different stages of the hiring process.
->>>>>>> 47dc1d96bc9c75e7a29e4096cafa67646a3a9f79
