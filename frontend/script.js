@@ -1,3 +1,4 @@
+const jobStatus = ["Applied", "Interview", "Offer", "Rejected"];
 document.addEventListener("DOMContentLoaded", loadJobs);
 
 function deleteJob(id) {
@@ -17,9 +18,30 @@ function loadJobs() {
                 const li = document.createElement("li");
                 li.innerHTML = `
                     <strong>${job.company}</strong> - ${job.role}
-                    (${job.status})
-                    <button onclick="deleteJob(${job.id})">delete</button>
                 `;
+                const dropdown = document.createElement("select");
+                dropdown.className = "perJobStatus";
+                jobStatus.forEach(element => {
+                    const option = document.createElement("option");
+                    option.textContent = element;
+                    dropdown.appendChild(option);
+                });
+                dropdown.value = job.status;
+                dropdown.addEventListener("change", function(e){
+                    console.log(e.target.value);
+                    fetch(`http://127.0.0.1:5000/jobs/${job.id}`, {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({status:e.target.value, notes:""})
+                    }).then(()=>loadJobs());
+                });
+                li.appendChild(dropdown);
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "delete";
+                deleteButton.onclick = () => deleteJob(job.id);
+                li.appendChild(deleteButton);
                 list.appendChild(li);
             });
         });
@@ -39,6 +61,5 @@ document.getElementById("jobForm").addEventListener("submit", function(e) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(job)
-    })
-    .then(() => loadJobs());
+    }).then(() => loadJobs());
 });

@@ -45,5 +45,19 @@ def delete_job(id):
 
     return jsonify({"message": "Deleted"})
 
+@app.route("/jobs/<int:id>", methods=["PUT"])
+def update_job(id):
+    data = request.json
+
+    conn = get_db()
+    conn.execute(
+        "UPDATE jobs SET status = ?, notes = ? WHERE id = ?",
+        (data["status"], data["notes"], id)
+    )
+    conn.commit()
+    conn.close()
+
+    return jsonify({"message": "Updated"})
+
 if __name__=="__main__":
     app.run()
